@@ -3,10 +3,9 @@ import { babel } from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
+import { defineConfig } from "rollup";
 
-// import type { RollupOptions } from "rollup";
-
-export default {
+export default defineConfig({
   input: "src/index.ts",
   output: [
     {
@@ -20,6 +19,7 @@ export default {
       sourcemap: true,
     },
   ],
+  external: [/@babel\/runtime/],
   plugins: [
     peerDepsExternal(),
     nodeResolve({
@@ -31,7 +31,6 @@ export default {
       extensions: ["ts", "tsx"],
       include: ["src/**/*"],
       babelHelpers: "runtime",
-      // babelHelpers: "runtime", TODO 추후 runtime bable 추가 예정 @Liam
     }),
   ],
-}; // as RollupOptions;
+});
