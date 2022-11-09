@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rimraf ./dist && rollup -c"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
@@ -26,6 +26,7 @@
     "babel-preset-react-app": "^10.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
     "rollup": "^3.2.5",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
