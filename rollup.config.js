@@ -31,6 +31,12 @@ export default defineConfig({
       extensions: ["ts", "tsx"],
       include: ["src/**/*"],
       babelHelpers: "runtime",
+      presets: [
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "@babel/preset-typescript",
+      ],
+      plugins: ["@babel/plugin-transform-runtime"],
     }),
     terser(),
   ],
