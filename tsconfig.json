@@ -14,7 +14,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "removeComments": true
+    "removeComments": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./*"]
+    }
   },
   "include": ["./src"],
   "exclude": [

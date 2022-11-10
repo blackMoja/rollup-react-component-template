@@ -3,6 +3,7 @@ import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
+import alias from "@rollup/plugin-alias";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import packageJson from "./package.json";
 
@@ -43,5 +44,11 @@ export default defineConfig({
     commonjs({ include: "node_modules/**" }),
     peerDepsExternal(),
     typescript({ tsconfig: "./tsconfig.json" }),
+    alias({
+      entries: [
+        { find: "@", replacement: "./src/*" },
+        { find: "@@", replacement: "./*" },
+      ],
+    }),
   ],
 });
