@@ -1,0 +1,11 @@
+### Todo's
+- [] rollup 설정 (2.xx.x) -> 가장 많이 사용한 버전 / 3버전은 11월 10일 기준 2달전에 릴리즈 되어 살짝 아티클이 부족함.
+- [] rollup import 적용
+- [] rollup plugin 설치
+- [] rollup ts 설치 && tsconfig 적용
+- [] rollup ts build 테스트
+- [] es(m) 빌드 테스트
+- [] webpack vs rollup 비교
+- [] soomgo design system 작업내용 복붙
+- [] 스토리북 적용
+- [] 문서화

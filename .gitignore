@@ -1,0 +1,8 @@
+**/node_modules
+**/*.css
+dist/*
+dist
+yarn-error.log
+src/**/*.js
+src/**/*.js.map
+.DS_Store
