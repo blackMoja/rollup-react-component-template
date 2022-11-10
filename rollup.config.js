@@ -1,25 +1,25 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import { defineConfig } from "rollup";
 import { babel } from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import terser from "@rollup/plugin-terser";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import typescript from "rollup-plugin-typescript2";
-import { defineConfig } from "rollup";
 
 export default defineConfig({
   input: "src/index.ts",
   output: [
     {
-      file: "dist/index.js",
-      format: "cjs",
-      sourcemap: true,
+      dir: "dist",
+      sourcemap: false,
     },
     {
-      file: "dist/index.esm.js",
-      format: "esm",
-      sourcemap: true,
+      dir: "dist/cjs",
+      format: "cjs",
+      sourcemap: false,
     },
   ],
-  external: [/@babel\/runtime/],
+  external: [/@babel\/runtime/, "react", "react-dom"],
   plugins: [
     peerDepsExternal(),
     nodeResolve({
@@ -32,5 +32,6 @@ export default defineConfig({
       include: ["src/**/*"],
       babelHelpers: "runtime",
     }),
+    terser(),
   ],
 });
