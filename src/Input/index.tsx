@@ -1,7 +1,13 @@
 import React from "react";
 
-const Input: React.FC = () => {
-  return <div>Input Component</div>;
+interface InputProps {
+  onChange?: (value: string) => void;
+}
+
+const Input: React.FC<InputProps> = (props) => {
+  const { onChange } = props;
+  return <input type="text" onChange={(e) => onChange?.(e.target.value)} />;
 };
 
+export { Input };
 export default Input;

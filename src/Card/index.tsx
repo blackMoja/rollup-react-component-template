@@ -1,7 +1,12 @@
 import React from "react";
 
-const Card: React.FC = () => {
-  return <div>Card Component</div>;
+interface CardProps {
+  title: string;
+}
+
+const Card: React.FC<CardProps> = (props) => {
+  const { title } = props;
+  return <div>{title ?? "Card Component"}</div>;
 };
 
 export default Card;
