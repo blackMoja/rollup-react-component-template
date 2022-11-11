@@ -9,5 +9,4 @@ const Input: React.FC<InputProps> = (props) => {
   return <input type="text" onChange={(e) => onChange?.(e.target.value)} />;
 };
 
-export { Input };
 export default Input;
