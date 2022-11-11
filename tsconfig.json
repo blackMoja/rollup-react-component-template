@@ -18,7 +18,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@@/*": ["./*"]
-    }
+    },
+    "types": ["node"],
+    "lib": ["esnext", "dom", "dom.iterable"]
   },
   "include": ["./src"],
   "exclude": [
@@ -26,5 +28,10 @@
     "./node_modules",
     "./src/**/*.test.tsx",
     "./src/**/*.stories.tsx"
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

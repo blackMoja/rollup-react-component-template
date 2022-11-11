@@ -1,0 +1,8 @@
+{
+  "name": "@liam/rollup-design-system",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "module": "./index.es.js",
+  "browser": "./index.umd.js",
+  "types": "./index.d.ts"
+}
