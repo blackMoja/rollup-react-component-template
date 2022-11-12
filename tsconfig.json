@@ -27,7 +27,8 @@
     "./dist",
     "./node_modules",
     "./src/**/*.test.tsx",
-    "./src/**/*.stories.tsx"
+    "./src/**/*.stories.tsx",
+    "./src/**/*.codegen.ts"
   ],
   "ts-node": {
     "compilerOptions": {
