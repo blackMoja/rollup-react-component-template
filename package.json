@@ -13,8 +13,9 @@
     "dist"
   ],
   "scripts": {
+    "build:codegen": "node --loader ts-node/esm -r tsconfig-paths/register ./codegen/index.ts",
     "build:package-json": "node --loader ts-node/esm -r tsconfig-paths/register ./setupPackage.ts",
-    "build": "rimraf dist && rollup -c && yarn build:package-json",
+    "build": "rimraf dist && yarn build:codegen && rollup -c && yarn build:package-json",
     "dev": "rollup -c -w"
   },
   "devDependencies": {
