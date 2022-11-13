@@ -23,7 +23,6 @@ export default defineConfig([
         preserveModules: true,
         preserveModulesRoot: "src",
         exports: "named",
-        
       },
       {
         file: packageJson.module,
