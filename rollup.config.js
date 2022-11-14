@@ -7,10 +7,10 @@ import alias from "@rollup/plugin-alias";
 // import postcss from "rollup-plugin-postcss";
 // import css from "rollup-plugin-css-only";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-// import copy from "rollup-plugin-copy";
+import copy from "rollup-plugin-copy";
 import packageJson from "./package.json";
 
-const extensions = ["js", "jsx", "ts", "tsx", "mjs"];
+const extensions = [".js", ".jsx", ".ts", ".tsx", ".mjs"];
 
 export default defineConfig([
   {
@@ -55,7 +55,10 @@ export default defineConfig([
         include: "node_modules/**",
       }),
       peerDepsExternal(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript(),
+      copy({
+        targets: [{ src: "./src/style/index.css", dest: "./dist" }],
+      }),
       alias({
         entries: [
           { find: "@", replacement: "./src/*" },
