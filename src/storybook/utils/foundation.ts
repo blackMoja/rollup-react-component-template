@@ -49,10 +49,8 @@ type ParsedTypographyDict = {
   };
 };
 
-export const parsedTypoDict = parseDict<
-  ParsedTypographyDict,
-  typeof typographyDict
->(typographyDict);
+export const parsedTypoDict =
+  parseDict<ParsedTypographyDict, typeof typographyDict>(typographyDict);
 
 /* Basic + Alpha Color */
 type BaseColorKey = BasicColorKey | AlphaKey;
@@ -61,16 +59,13 @@ type BaseColorDict = {
   [key in BaseColorKey]: Record<string, string>;
 };
 
-export const parsedBasicColors = parseDict<BaseColorDict, typeof basicColors>(
-  basicColors,
-);
+export const parsedBasicColors =
+  parseDict<BaseColorDict, typeof basicColors>(basicColors);
 
 /* Semantic Color */
 type SemanticColorDict = {
   [key in SemanticColor]: Record<string, string>;
 };
 
-export const parsedSemanticColors = parseDict<
-  SemanticColorDict,
-  typeof semanticColors
->(semanticColors);
+export const parsedSemanticColors =
+  parseDict<SemanticColorDict, typeof semanticColors>(semanticColors);
