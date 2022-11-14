@@ -1,0 +1,181 @@
+import { Meta } from '@storybook/addon-docs';
+import Typography from "../../Typography"
+import { gradients } from "../../foundation/colors/colors"
+import { parsedBasicColors } from '../utils/foundation'
+import { pascalize } from "../utils/format.ts"
+
+<Meta title="Definition/Color" />
+
+# [Color System](https://www.figma.com/file/4iVAWypeGjx1xE0Rbjg2Sa/Soomgo-Brand-Foundation-v.2.0?node-id=11%3A237)
+Main Color (500) 의 기준으로 추출한 컬러 팔레트입니다. 숨고 프로덕트 디자인 시 아래의 팔레트 내에서 디자인을 지향합니다.<br/>
+체크 표시된 컬러 팔레트는 프로덕트 내에서 사용 빈도가 높은 팔레트로 개발에서 50 ~ 900 컬러 모두 등록이 필요합니다. 이 외 컬러는 Semantic 컬러 내 사용을 지향합니다.
+
+## Basic Color
+
+### Teal ✅ 
+브랜드 대표 컬러, 링크 및 포인트로 사용
+> ex) Teal 500 - CTA Button<br />
+>	Teal 900 - CTA Button Pressed Status
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.teal).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-teal-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Skyblue
+Primary → Skyblue 그라데이션 및 일러스트
+> 브랜드 대표 컬러, 링크 및 포인트로 사용
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.skyblue).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-skyblue-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Blue
+숨고의 Secondary 컬러 및 정보색상으로 사용
+> ex) Nudge Tooltip, 숨고페이 라벨
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.blue).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-blue-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Yellow
+아이콘 및 일러스트
+> ex) Yellow 500 - 별점, 캐쉬 등 아이콘
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.yellow).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-yellow-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Green
+성공과 같은 긍정적인 메세지에 사용
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.green).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-green-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Orange
+경고 메세지 및 상재적으로 구분이 필요한 정보를 나타낼때 사용
+> ex) 지정요청 라벨
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.orange).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-orange-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Red
+실패, 에러, 알림, 삭제, 취소 등 주의를 요하거나 하강의 의미를 담은 요소에 사용
+> ex) 알림 벳지, 삭제 버튼
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.red).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-red-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+## Grayscale Colors
+
+### Gray ✅
+구분선 및 배경, 텍스트,  아이콘 등 중립적인 요소에 사용 또는 버튼의 Disabled 상태를 표현할 때 사용함.
+> ex) Gray 200 - Disabled Button<br />
+> Gray 900 - 기본 텍스트 컬러
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.gray).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-gray-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### Blue Gray ✅
+브랜드 보조 컬러
+> ex) Gray 200 - Disabled Button<br />
+> Gray 900 - 기본 텍스트 컬러
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.bluegray).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100', '500', '900'].includes(variant) ? ' circle' : ''} sg-bg-color-bluegray-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+## Black & White + Alpha
+
+### Black + Alpha
+숨고 서비스에 블랙 알파채널이 필요한 경우 사용
+> ex) Black 40 - 딤,<br />
+> Black 90 - 토스트 메세지
+
+<div className="d-flex justify-center py-1 my-4">
+  {Object.entries(parsedBasicColors.black).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['40'].includes(variant) ? ' circle' : ''} sg-bg-color-black-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+### White + Alpha
+숨고 서비스에 블랙 알파채널이 필요한 경우 사용
+> ex) White 100 - CTA Button Label
+
+<div className="d-flex justify-center py-1 my-4 sg-bg-color-black-100">
+  {Object.entries(parsedBasicColors.white).sort(([vA], [vB]) => vA - vB).map(([variant, colorString], key) => (
+    <div key={key} className={`color small${['100'].includes(variant) ? ' circle' : ''} sg-bg-color-white-${variant}`}>
+      <Typography variant="interface-detail-bold">{variant}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+  ))}
+</div>
+
+## Gradation
+
+### Teal Gradation
+Teal 500+ Sky Blue 400 : 시각적 강조 효과가 필요한 경우 사용
+> ex) 프로필 영역, Chat
+
+<div className="d-flex d-col py-1 my-4">
+  {Object.entries(gradients).map(([key, colorString], index) => {
+    const [_, ...variant] = key.split("-")
+    return (
+      <div key={index} className={`py-7 d-flex d-col align-center justify-center sg-bg-${key}`}>
+      <Typography variant="interface-detail-bold">{variant.join("-")}</Typography>
+      <Typography variant="interface-detail-bold">{colorString}</Typography>
+    </div>
+    )
+  })}
+</div>

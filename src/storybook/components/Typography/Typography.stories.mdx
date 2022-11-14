@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/addon-docs'
+import Typography from "../../../Typography"
+import typographyDict from "../../../foundation/typography/typography"
+import { parsedTypoDict } from "../../utils/foundation"
+import { pascalize } from "../../utils/format"
+
+<Meta title="Definition/Typography" />
+
+# [Typography System](https://www.figma.com/file/4iVAWypeGjx1xE0Rbjg2Sa/Soomgo-Brand-Foundation-v.2.0?node-id=114%3A461)
+
+<br/><br/>
+<Typography variant="display-display3" as="h2">Font Family</Typography>
+<hr />
+
+<Typography variant="interface-body2-regular" color="gray-500">디자인 시 다음의 서체를 목적에 맞게 사용합니다. OS 범용 폰트로 사용합니다.</Typography>
+<article className="my-10">
+  <div className="sg-bg-color-gray-050 d-flex align-center justify-space-around p-2" style={{ borderRadius: 8}}>
+    <Typography variant="display-display3">Pretendard</Typography>
+    <Typography variant="interface-body1-regular">국문, 영문, 숫자 사용</Typography>
+    <Typography variant="interface-body1-regular">Regular 400</Typography>
+    <Typography variant="interface-body1-medium">Medium 500</Typography>
+    <Typography variant="interface-body1-bold">Bold 700</Typography>
+  </div>
+</article>
+
+<main  className="my-10">
+  {Object.entries(parsedTypoDict).map(([group, variants], groupIndex) => {
+    const typoDesc = {
+      display: '행간은 폰트 크기에 비례한 1.6em 값을 사용합니다. 자간은 0 으로 설정합니다. (모바일 에셋 이슈로 자간 조정은 적용하지 않습니다.)\n아래 파운데이션 개발 시 아래 테이블 값으로 타이포그래피를 적용합니다.',
+      interface: '행간은 폰트 크기에 비례한 1.6em 값을 사용합니다. 자간은 0 으로 설정합니다. (모바일 에셋 이슈로 자간 조정은 적용하지 않습니다.)\n아래 파운데이션 개발 시 아래 테이블 값으로 타이포그래피를 적용합니다.',
+      button: '',
+      link: '',
+    }
+    const description = typoDesc[group]
+    return (
+      <section key={groupIndex} className="my-10">
+        <Typography variant="display-display3" as="h2">{pascalize(group)}</Typography>
+        <hr />
+        <Typography variant="interface-body2-regular" color="gray-500">{description}</Typography>
+        <table>
+          <thead>
+            <tr>
+              <th>Font Family</th>
+              <th>Size</th>
+              <th>Weight</th>
+              <th>Line Height</th>
+              <th>Letter Spacing</th>
+              <th>Typography</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(variants).map(([key, {fontSize,lineHeight,fontWeight}], variantIndex) => {
+              const fw = fontWeight === 400 ? 'Regular' : fontWeight === 500 ? 'Medium' : 'Bold'
+              return (
+                <tr key={variantIndex}>
+                  <td>{key}</td>
+                  <td>{`${fontSize}px`}</td>
+                  <td>{fw}</td>
+                  <td>{lineHeight ?? 'auto'}</td>
+                  <td>0%</td>
+                  <td>
+                    <Typography variant={`${group}-${key}`}>{key}</Typography>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </section>
+    )
+  })}
+</main>
