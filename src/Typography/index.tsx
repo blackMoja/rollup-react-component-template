@@ -1,8 +1,8 @@
-import type { BaseColor } from '../../src/foundation/colors/type';
+import type { BaseColor } from '../foundation/colors/type';
 import type {
   TypographyAligns,
   TypographyVariants,
-} from '../../src/foundation/typography/type';
+} from '../foundation/typography/type';
 import React from 'react';
 
 interface TypographyProps {

@@ -10,14 +10,14 @@
     "declaration": true,
     "declarationDir": "./dist",
     "sourceMap": false,
+    "baseUrl": ".",
     "outDir": "./dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "removeComments": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@@/*": ["./*"]
+      "@/*": ["./*"]
     },
     "types": ["node"],
     "lib": ["esnext", "dom", "dom.iterable"]
