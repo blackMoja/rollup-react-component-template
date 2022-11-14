@@ -1,0 +1,186 @@
+import { Meta } from '@storybook/addon-docs';
+import Typography from "../../Typography"
+import { parsedSemanticColors, parsedBasicColors } from "../utils/foundation"
+import { pascaliseCamelGroup } from "../utils/format"
+
+<Meta title="Definition/Semantic Color" />
+
+# [Semantic Color](https://www.figma.com/file/4iVAWypeGjx1xE0Rbjg2Sa/Soomgo-Brand-Foundation-v.2.0?node-id=799%3A1750)
+숨고 프로덕트 디자인 시 지정한 Semantic 컬러 내 디자인을 지향합니다. 디자인 시 다음의 컬러를 목적에 맞게 사용합니다.<br/>
+Semantic 컬러 추가 필요 시 팔레트에 추가합니다.
+
+## Service Color
+서비스내 컴포넌트에 주요하게 사용되는 주요 컬러입니다.
+<div className="d-flex py-1 gap-10 w-full">
+  <div className="d-flex d-col gap-2 p-5 w-1/3 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Primary</Typography>
+    {Object.entries(parsedSemanticColors.primary).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-primary-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'teal-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'teal-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.teal).map(([v, c]) => c === color ? `Teal ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/3 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Secondary</Typography>
+    {Object.entries(parsedSemanticColors.secondary).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-secondary-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'gray-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'gray-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.bluegray).map(([v, c]) => c === color ? `Blue Gray ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+</div>
+
+## State Color
+UI요소들의 상황 별 의미를 전달하는 색상으로 사용자가 상태를 식별하고, 다음 단계를 이해하는 데 도움이 되는 컬러입니다.
+<div className="d-flex py-1 gap-10 w-full">
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Informative</Typography>
+    {Object.entries(parsedSemanticColors.informative).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-informative-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'blue-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'blue-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.blue).map(([v, c]) => c === color ? `Blue ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Negative</Typography>
+    {Object.entries(parsedSemanticColors.negative).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-negative-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'red-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'red-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.red).map(([v, c]) => c === color ? `Red ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Positive</Typography>
+    {Object.entries(parsedSemanticColors.positive).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-positive-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'green-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'green-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.green).map(([v, c]) => c === color ? `Green ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Attentive</Typography>
+    {Object.entries(parsedSemanticColors.attentive).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-attentive-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'yellow-500' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={variant === 'light' ? 'yellow-500' : 'white-100'}>
+          {Object.entries(parsedBasicColors.yellow).map(([v, c]) => c === color ? `Yellow ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+</div>
+
+## Gray
+무채색 색상으로 Black에서부터 White까지 이루어지며 색상이 적용되는 UI의 특정 부분에 따라 구분하여 사용하는 컬러입니다.
+<div className="d-flex py-1 gap-10 w-full">
+  <div className="d-flex d-col gap-2 p-5 w-1/3 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Text</Typography>
+    {Object.entries(parsedSemanticColors.text).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-text-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['white'].includes(variant) ? 'gray-900' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['white'].includes(variant) ? 'gray-900' : 'white-100'}>
+          {['white'].includes(variant) ? 
+              Object.entries(parsedBasicColors.white).map(([v, c]) => c === color ? `White ${v}` : '') 
+            :
+              Object.entries(parsedBasicColors.gray).map(([v, c]) => c === color ? `Gray ${v}` : '')
+          }
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/3 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Border</Typography>
+    {Object.entries(parsedSemanticColors.border).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-border-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['on-surface'].includes(variant) ? 'white-100' : 'black-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['on-surface'].includes(variant) ? 'white-100' : 'black-100'}>
+          {Object.entries(parsedBasicColors.gray).map(([v, c]) => c === color ? `Gray ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/3 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Common</Typography>
+    {Object.entries(parsedSemanticColors.common).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-common-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['black'].includes(variant) ? 'white-100' : 'gray-900'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['black'].includes(variant) ? 'white-100' : 'gray-900'}>
+          {['black'].includes(variant) ? 
+              Object.entries(parsedBasicColors.black).map(([v, c]) => c === color ? `Black ${v}` : '') 
+            :
+              Object.entries(parsedBasicColors.white).map(([v, c]) => c === color ? `White ${v}` : '')
+          }
+        </Typography>
+      </div>
+    ))}
+  </div>
+</div>
+<div className="d-flex py-1 gap-10 w-full">
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Background</Typography>
+    {Object.entries(parsedSemanticColors.background).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-background-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['grouped-contents'].includes(variant) ? 'gray-900' : 'black-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['grouped-contents'].includes(variant) ? 'gray-900' : 'black-100'}>
+          {['base', 'grouped-contents'].includes(variant) ? 
+              Object.entries(parsedBasicColors.white).map(([v, c]) => c === color ? `White ${v}` : '') 
+            :
+              Object.entries(parsedBasicColors.gray).map(([v, c]) => c === color ? `Gray ${v}` : '')
+          }
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Fill</Typography>
+    {Object.entries(parsedSemanticColors.fill).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-fill-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color="black-100">{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color="black-100">
+          {['fill0'].includes(variant) ? 
+              Object.entries(parsedBasicColors.white).map(([v, c]) => c === color ? `White ${v}` : '') 
+            :
+              Object.entries(parsedBasicColors.gray).map(([v, c]) => c === color ? `Gray ${v}` : '')
+          }
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Disabled</Typography>
+    {Object.entries(parsedSemanticColors.disabled).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-disabled-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['fill'].includes(variant) ? 'gray-900' : 'black-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['fill'].includes(variant) ? 'gray-900' : 'black-100'}>
+          {Object.entries(parsedBasicColors.gray).map(([v, c]) => c === color ? `Gray ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+  <div className="d-flex d-col gap-2 p-5 w-1/4 b-hierarchy2" style={{borderRadius: 8}}>
+    <Typography variant="interface-body1-medium" color="black-40">Dim</Typography>
+    {Object.entries(parsedSemanticColors.dim).map(([variant, color], key) => (
+      <div key={key} className={`d-flex justify-space-between p-4 align-center b-hierarchy1 sg-bg-color-dim-${variant}`} style={{borderRadius: 6}}>
+        <Typography variant="interface-body2-medium" color={['base'].includes(variant) ? 'black-100' : 'white-100'}>{pascaliseCamelGroup(variant)}</Typography>
+        <Typography variant="interface-body2-medium" color={['base'].includes(variant) ? 'black-100' : 'white-100'}>
+          {Object.entries(parsedBasicColors.black).map(([v, c]) => c === color ? `Black ${v}` : '')}
+        </Typography>
+      </div>
+    ))}
+  </div>
+</div>

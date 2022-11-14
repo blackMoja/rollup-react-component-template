@@ -26,6 +26,7 @@
   "exclude": [
     "./dist",
     "./node_modules",
+    "./src/storybook",
     "./src/**/*.test.tsx",
     "./src/**/*.stories.tsx",
     "./src/**/*.codegen.ts",
