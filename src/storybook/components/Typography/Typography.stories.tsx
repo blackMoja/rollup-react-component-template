@@ -7,6 +7,7 @@ import typographyDict, {
 import { colors } from '../../../foundation/colors/colors';
 import { parsedTypoDict } from '../../utils/foundation';
 import { pascalize, pascaliseCamelGroup } from '../../utils/format';
+import type { TypographyVariants } from '../../../foundation/typography/type';
 
 const variantOptions = Object.keys(typographyDict);
 const colorOptions = Object.keys(colors);
@@ -85,7 +86,7 @@ export const All: Story<TypographyProps> = (args) => {
                 <div key={key} className="d-flex d-col my-8 gap-2">
                   <Typography
                     {...props}
-                    variant={`${groupKey}-${key}`}
+                    variant={`${groupKey}-${key}` as TypographyVariants}
                     as="span"
                   >
                     {children}
