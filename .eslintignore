@@ -1,0 +1,5 @@
+build/*
+**/*.d.ts
+dist/*
+setupPackage.ts
+*.config.js
