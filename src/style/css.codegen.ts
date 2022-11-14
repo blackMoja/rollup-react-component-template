@@ -1,14 +1,14 @@
-import fs from "fs";
-import path from "path";
-import { colors, baseColors, gradients } from "../foundation/colors/colors";
-import breakpoints from "../foundation/breakpoints/breakpoints";
+import fs from 'fs';
+import path from 'path';
+import { colors, baseColors, gradients } from '../foundation/colors/colors';
+import breakpoints from '../foundation/breakpoints/breakpoints';
 import typographyDict, {
   typographyAligns,
-} from "../foundation/typography/typography";
-import type { Color } from "../foundation/colors/type";
-import type { BreakpointKey } from "../foundation/breakpoints/breakpoints";
+} from '../foundation/typography/typography';
+import type { Color } from '../foundation/colors/type';
+import type { BreakpointKey } from '../foundation/breakpoints/breakpoints';
 
-const numToRem = (size: number) => size / 16 + "rem";
+const numToRem = (size: number) => size / 16 + 'rem';
 const calcLineHeight = (fs: number, lineHeight: number, fractionDigits = 8) =>
   Number(lineHeight / fs).toFixed(fractionDigits);
 const breakpointKeys = Object.keys(breakpoints) as BreakpointKey[];
@@ -17,7 +17,7 @@ const breakpointKeys = Object.keys(breakpoints) as BreakpointKey[];
 const generateColorCssVar = () =>
   Object.entries(colors)
     .map(([key, hex]) => `--${key}: ${hex}`)
-    .join(";");
+    .join(';');
 
 // Generate Responsive css
 const generateResponsiveClass = (bp: BreakpointKey, css: string) =>
@@ -27,7 +27,7 @@ const generateResponsiveClass = (bp: BreakpointKey, css: string) =>
 const generateColorAttributeClass = (prefix: string, attribute: string) =>
   (Object.keys(baseColors) as Color[])
     .map((key) => `.sg-${prefix}-${key} { ${attribute}: var(--${key}) }`)
-    .join("");
+    .join('');
 
 // Generate Gradient Background Attributes
 const generateGradientBgAttributeClass = () =>
@@ -35,48 +35,48 @@ const generateGradientBgAttributeClass = () =>
     .map(
       (key) => `
       .sg-bg-${key} { background: var(--${key}) }
-    `
+    `,
     )
-    .join("");
+    .join('');
 
 // Generate Typography Variants
 const generateTypographyClass = (bp?: BreakpointKey) =>
   Object.entries(typographyDict)
     .map(([key, { fontSize: fs, fontWeight: fw, lineHeight: lh }]) => {
-      const prefix = bp ? `${bp}\\:` : "";
+      const prefix = bp ? `${bp}\\:` : '';
       return `.${prefix}sg-typo-${key} { font-size: ${numToRem(
-        fs
+        fs,
       )}; font-weight: ${fw}; line-height: ${
-        lh ? calcLineHeight(fs, lh) : "normal"
+        lh ? calcLineHeight(fs, lh) : 'normal'
       } }`;
     })
-    .join("");
+    .join('');
 
 // Generate Typography Aligns
 const generateTypographyAlignClasses = () =>
   typographyAligns
     .map(
       (alignClass) =>
-        `.sg-typo-align-${alignClass} { text-align: ${alignClass} }`
+        `.sg-typo-align-${alignClass} { text-align: ${alignClass} }`,
     )
-    .join("");
+    .join('');
 
 const generateAllTypographyClass = () => {
   const responsiveClasses = breakpointKeys.map((bp) =>
-    generateResponsiveClass(bp, generateTypographyClass(bp))
+    generateResponsiveClass(bp, generateTypographyClass(bp)),
   );
-  return [generateTypographyClass(), ...responsiveClasses].join("");
+  return [generateTypographyClass(), ...responsiveClasses].join('');
 };
 
 const generateGlobalCssFile = () => {
   const cssVars = `:root {${generateColorCssVar()}}`;
-  const colorClasses = generateColorAttributeClass("color", "color");
+  const colorClasses = generateColorAttributeClass('color', 'color');
   const backgroundColorClasses = generateColorAttributeClass(
-    "bg-color",
-    "background-color"
+    'bg-color',
+    'background-color',
   );
   const gradientBackgroundClasses = generateGradientBgAttributeClass();
-  const fillClasses = generateColorAttributeClass("fill", "fill");
+  const fillClasses = generateColorAttributeClass('fill', 'fill');
   const typographyClasses = generateAllTypographyClass();
   const typographyAlignClasses = generateTypographyAlignClasses();
 
@@ -92,6 +92,6 @@ const generateGlobalCssFile = () => {
 };
 
 export default function setup() {
-  const filePath = path.resolve(__dirname, "index.css");
-  fs.writeFileSync(filePath, generateGlobalCssFile(), "utf-8");
+  const filePath = path.resolve(__dirname, 'index.css');
+  fs.writeFileSync(filePath, generateGlobalCssFile(), 'utf-8');
 }

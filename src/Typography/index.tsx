@@ -1,9 +1,9 @@
-import type { BaseColor } from "../../src/foundation/colors/type";
+import type { BaseColor } from '../../src/foundation/colors/type';
 import type {
   TypographyAligns,
   TypographyVariants,
-} from "../../src/foundation/typography/type";
-import React from "react";
+} from '../../src/foundation/typography/type';
+import React from 'react';
 
 interface TypographyProps {
   variant: TypographyVariants;
@@ -18,8 +18,8 @@ interface TypographyProps {
 
 const Typography: React.FC<TypographyProps> = ({
   variant,
-  color = "text-primary",
-  as: Component = "p",
+  color = 'text-primary',
+  as: Component = 'p',
   align,
   sm,
   md,
@@ -37,7 +37,7 @@ const Typography: React.FC<TypographyProps> = ({
         lg && `lg:sg-typo-${lg}`,
       ]
         .filter((c) => c)
-        .join(" ")}
+        .join(' ')}
     >
       {children}
     </Component>
