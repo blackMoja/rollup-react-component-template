@@ -28,7 +28,10 @@
     "./node_modules",
     "./src/**/*.test.tsx",
     "./src/**/*.stories.tsx",
-    "./src/**/*.codegen.ts"
+    "./src/**/*.codegen.ts",
+    "./src/foundation/breakpoints/breakpoints.ts",
+    "./src/foundation/colors/colors.ts",
+    "./src/foundation/typography/typography.ts"
   ],
   "ts-node": {
     "compilerOptions": {
