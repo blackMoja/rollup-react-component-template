@@ -13,7 +13,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
 export default defineConfig([
   {
-    external: [/node_modules/, 'react', 'react-dom'],
+    external: [/@babel\/runtime/, /node_modules/, 'react', 'react-dom'],
     input: 'src/index.ts',
     output: [
       {
@@ -41,9 +41,11 @@ export default defineConfig([
     plugins: [
       nodeResolve({ extensions }),
       babel({
+        babelHelpers: 'runtime',
         exclude: 'node_modules/**',
         extensions,
         include: ['src/**/*'],
+        plugins: ['@babel/plugin-transform-runtime'],
         presets: [
           '@babel/preset-env',
           '@babel/preset-typescript',
