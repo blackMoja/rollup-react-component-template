@@ -12,7 +12,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
 export default defineConfig([
   {
-    external: [/node_modules/, /@babel\/runtime/, 'react', 'react-dom'],
+    external: [/@babel\/runtime/, 'react', 'react-dom'],
     input: 'src/index.ts',
     output: [
       {
