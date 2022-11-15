@@ -23,7 +23,8 @@
     "build:storybook": "build-storybook -s public",
     "build": "rimraf dist && yarn build:codegen && rollup -c && yarn build:package-json",
     "dev": "rollup -c -w",
-    "storybook": "start-storybook -p 6006 -s public"
+    "storybook": "start-storybook -p 6006 -s public",
+    "unimported": "npx unimported"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
