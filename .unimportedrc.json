@@ -1,0 +1,8 @@
+{
+  "entry": ["src/index.ts"],
+  "extensions": [".ts", ".tsx", ".js", ".jsx"],
+  "ignorePatterns": ["**/node_modules/**", "**/storybook/**", "**/*.d.ts"],
+  "ignoreUnimported": [],
+  "ignoreUnused": [],
+  "ignoreUnresolved": []
+}
