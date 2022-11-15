@@ -2,9 +2,11 @@ import { defineConfig } from 'rollup';
 import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
+import filesize from 'rollup-plugin-filesize';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
@@ -22,6 +24,7 @@ export default defineConfig([
       },
     ],
     plugins: [
+      filesize(),
       peerDepsExternal(),
       nodeResolve({ extensions }),
       babel({
@@ -53,6 +56,7 @@ export default defineConfig([
           peerDependencies: pkg.peerDependencies,
         }),
       }),
+      terser(),
     ],
   },
 ]);
