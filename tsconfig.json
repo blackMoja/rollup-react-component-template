@@ -16,13 +16,10 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "removeComments": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
     "types": ["node"],
     "lib": ["esnext", "dom", "dom.iterable"]
   },
-  "include": ["./src"],
+  "include": ["src/**/*"],
   "exclude": [
     "./dist",
     "./node_modules",

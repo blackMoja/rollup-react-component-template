@@ -5,7 +5,7 @@ import type {
 } from '../foundation/typography/type';
 import React from 'react';
 
-interface TypographyProps {
+export interface TypographyProps {
   variant: TypographyVariants;
   color?: BaseColor;
   align?: TypographyAligns;
