@@ -20,7 +20,8 @@
     "lint:fix": "eslint \"**/*.{ts, tsx, js}\" --fix",
     "build:codegen": "node --loader ts-node/esm -r tsconfig-paths/register ./codegen/index.ts",
     "build:storybook": "build-storybook -s public",
-    "build": "rimraf dist && yarn build:codegen && rollup -c",
+    "prebuild": "rimraf dist && yarn lint:fix && yarn build:codegen",
+    "build": "yarn prebuild && rollup -c",
     "dev": "rollup -c -w",
     "storybook": "start-storybook -p 6006 -s public",
     "unimported": "npx unimported"
