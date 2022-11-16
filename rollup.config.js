@@ -18,8 +18,6 @@ export default defineConfig([
       dir: './dist',
       format: 'esm',
       preserveModules: true,
-      preserveModulesRoot: 'src',
-      exports: 'named',
     },
     plugins: [
       filesize(),
