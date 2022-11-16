@@ -14,15 +14,13 @@ export default defineConfig([
   {
     external: [/@babel\/runtime/, 'react', 'react-dom'],
     input: 'src/index.ts',
-    output: [
-      {
-        dir: './dist',
-        format: 'esm',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-        exports: 'named',
-      },
-    ],
+    output: {
+      dir: './dist',
+      format: 'esm',
+      preserveModules: true,
+      preserveModulesRoot: 'src',
+      exports: 'named',
+    },
     plugins: [
       filesize(),
       peerDepsExternal(),
