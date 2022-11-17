@@ -40,9 +40,7 @@ export default defineConfig([
       // },
     ],
     plugins: [
-      filesize({
-        reporter: [function (options, outputOptions, info) {}],
-      }),
+      filesize(),
       progress({ clearLine: false }),
       nodeResolve({ extensions }),
       babel({
