@@ -28,16 +28,6 @@ export default defineConfig([
         file: packageJson.module,
         format: 'esm',
       },
-      // {
-      //   name: packageJson.name,
-      //   file: packageJson.browser,
-      //   format: 'umd',
-      //   globals: {
-      //     react: 'React',
-      //     'react-dom': 'ReactDOM',
-      //     styleInject: 'styleInject',
-      //   },
-      // },
     ],
     plugins: [
       filesize(),
