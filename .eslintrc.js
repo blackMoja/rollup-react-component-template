@@ -35,4 +35,9 @@ module.exports = {
     'react/jsx-props-no-spreading': ['warn'],
     'react/no-unescaped-entities': ['off'],
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
