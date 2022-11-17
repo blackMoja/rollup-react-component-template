@@ -7,13 +7,14 @@ import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
+import filesize from 'rollup-plugin-filesize';
 import packageJson from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
 export default defineConfig([
   {
-    external: [/@babel\/runtime/, /node_modules/, 'react', 'react-dom'],
+    external: [/@babel\/runtime/, 'react', 'react-dom'],
     input: 'src/index.ts',
     output: [
       {
@@ -38,6 +39,7 @@ export default defineConfig([
       // },
     ],
     plugins: [
+      filesize(),
       nodeResolve({ extensions }),
       babel({
         babelHelpers: 'runtime',
