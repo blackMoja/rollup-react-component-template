@@ -8,6 +8,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
 import filesize from 'rollup-plugin-filesize';
+import progress from 'rollup-plugin-progress';
 import packageJson from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
@@ -39,7 +40,10 @@ export default defineConfig([
       // },
     ],
     plugins: [
-      filesize(),
+      filesize({
+        reporter: [function (options, outputOptions, info) {}],
+      }),
+      progress({ clearLine: false }),
       nodeResolve({ extensions }),
       babel({
         babelHelpers: 'runtime',
