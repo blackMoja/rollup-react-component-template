@@ -3,7 +3,7 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import alias from '@rollup/plugin-alias';
+import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
@@ -20,23 +20,22 @@ export default defineConfig([
         dir: './dist',
         format: 'cjs',
         preserveModules: true,
-        preserveModulesRoot: 'src',
         exports: 'named',
       },
       {
         file: packageJson.module,
-        format: 'es',
+        format: 'esm',
       },
-      {
-        name: packageJson.name,
-        file: packageJson.browser,
-        format: 'umd',
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          styleInject: 'styleInject',
-        },
-      },
+      // {
+      //   name: packageJson.name,
+      //   file: packageJson.browser,
+      //   format: 'umd',
+      //   globals: {
+      //     react: 'React',
+      //     'react-dom': 'ReactDOM',
+      //     styleInject: 'styleInject',
+      //   },
+      // },
     ],
     plugins: [
       nodeResolve({ extensions }),
@@ -44,7 +43,6 @@ export default defineConfig([
         babelHelpers: 'runtime',
         exclude: 'node_modules/**',
         extensions,
-        include: ['src/**/*'],
         plugins: ['@babel/plugin-transform-runtime'],
         presets: [
           '@babel/preset-env',
@@ -76,9 +74,7 @@ export default defineConfig([
           peerDependencies: pkg.peerDependencies,
         }),
       }),
-      alias({
-        entries: [{ find: '@', replacement: './*' }],
-      }),
+      terser(),
     ],
   },
 ]);
