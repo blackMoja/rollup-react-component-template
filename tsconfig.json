@@ -16,9 +16,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "removeComments": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
     "types": ["node"],
     "lib": ["esnext", "dom", "dom.iterable"]
   },
