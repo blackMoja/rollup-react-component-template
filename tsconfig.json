@@ -17,7 +17,11 @@
     "emitDeclarationOnly": true,
     "removeComments": true,
     "types": ["node"],
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "paths": {
+      "@": ["src"],
+      "@@": ["./"]
+    }
   },
   "include": ["./src"],
   "exclude": [
