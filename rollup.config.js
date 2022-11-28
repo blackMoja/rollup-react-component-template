@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
+import alias from '@rollup/plugin-alias';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
@@ -15,7 +16,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
 export default defineConfig([
   {
-    external: [/@babel\/runtime/, 'react', 'react-dom'],
+    external: [/@babel\/runtime/, 'react', 'react-dom', 'tslib'],
     input: 'src/index.ts',
     output: [
       {
@@ -69,6 +70,11 @@ export default defineConfig([
         }),
       }),
       terser(),
+      alias({
+        entries: {
+          '@/*': './src/*',
+        },
+      }),
     ],
   },
 ]);

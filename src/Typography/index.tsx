@@ -1,9 +1,10 @@
-import type { BaseColor } from '../foundation/colors/type';
+import type { FC, ReactNode } from 'react';
+
+import type { BaseColor } from '@/foundation/colors/type';
 import type {
   TypographyAligns,
   TypographyVariants,
-} from '../foundation/typography/type';
-import React from 'react';
+} from '@/foundation/typography/type';
 
 interface TypographyProps {
   variant: TypographyVariants;
@@ -13,10 +14,10 @@ interface TypographyProps {
   sm?: TypographyVariants;
   md?: TypographyVariants;
   lg?: TypographyVariants;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-const Typography: React.FC<TypographyProps> = ({
+const Typography: FC<TypographyProps> = ({
   variant,
   color = 'text-primary',
   as: Component = 'p',
