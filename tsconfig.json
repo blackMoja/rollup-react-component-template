@@ -27,9 +27,9 @@
     "types": ["node"],
     "lib": ["esnext", "dom", "dom.iterable"],
     "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      },
+      // {
+      //   "transform": "typescript-transform-paths"
+      // },
       {
         "transform": "typescript-transform-paths",
         "afterDeclarations": true

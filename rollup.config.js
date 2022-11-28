@@ -9,7 +9,6 @@ import alias from '@rollup/plugin-alias';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
-import filesize from 'rollup-plugin-filesize';
 import progress from 'rollup-plugin-progress';
 import packageJson from './package.json';
 
@@ -32,7 +31,6 @@ export default defineConfig([
       },
     ],
     plugins: [
-      filesize(),
       progress({ clearLine: false }),
       nodeResolve({ extensions }),
       babel({
@@ -51,7 +49,6 @@ export default defineConfig([
       typescript({
         tsconfig: 'tsconfig.json',
         typescript: ttypescript,
-        // useTsconfigDeclarationDir: true,
       }),
       copy({ targets: [{ src: './src/style/index.css', dest: './dist' }] }),
       makePackageJson({
@@ -66,7 +63,6 @@ export default defineConfig([
           module: pkg.module.replace('dist/', ''),
           browser: pkg.browser.replace('dist/', ''),
           types: pkg.types.replace('dist/', ''),
-          style: pkg.style.replace('dist/', ''),
           peerDependencies: pkg.peerDependencies,
         }),
       }),
