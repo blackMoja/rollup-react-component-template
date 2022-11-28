@@ -3,7 +3,9 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import ttypescript from 'ttypescript';
 import terser from '@rollup/plugin-terser';
+import alias from '@rollup/plugin-alias';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import copy from 'rollup-plugin-copy';
 import makePackageJson from 'rollup-plugin-generate-package-json';
@@ -15,7 +17,7 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx', '.mjs'];
 
 export default defineConfig([
   {
-    external: [/@babel\/runtime/, 'react', 'react-dom'],
+    external: [/@babel\/runtime/, 'react', 'react-dom', 'tslib'],
     input: 'src/index.ts',
     output: [
       {
@@ -44,14 +46,14 @@ export default defineConfig([
           '@babel/preset-react',
         ],
       }),
-      commonjs({
-        include: 'node_modules/**',
-      }),
+      commonjs(),
       peerDepsExternal(),
-      typescript(),
-      copy({
-        targets: [{ src: './src/style/index.css', dest: './dist' }],
+      typescript({
+        tsconfig: 'tsconfig.json',
+        typescript: ttypescript,
+        // useTsconfigDeclarationDir: true,
       }),
+      copy({ targets: [{ src: './src/style/index.css', dest: './dist' }] }),
       makePackageJson({
         inputFolder: './',
         outputFolder: 'dist',
@@ -67,6 +69,11 @@ export default defineConfig([
           style: pkg.style.replace('dist/', ''),
           peerDependencies: pkg.peerDependencies,
         }),
+      }),
+      alias({
+        entries: {
+          '@/*': './src/*',
+        },
       }),
       terser(),
     ],
