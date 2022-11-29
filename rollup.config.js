@@ -8,7 +8,8 @@ import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import progress from 'rollup-plugin-progress';
 import copy from 'rollup-plugin-copy';
-import makePackageJson from 'rollup-plugin-generate-package-json';
+import buble from 'rollup-plugin-buble';
+import sizes from 'rollup-plugin-sizes';
 import packageJson from './package.json';
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -34,18 +35,10 @@ const tsOption = {
   typescript: ttypescript,
 };
 const copyOption = {
-  targets: [{ src: './src/style/index.css', dest: './dist' }],
-};
-const makePackageJsonOption = {
-  inputFolder: './',
-  outputFolder: 'dist',
-  baseContents: (pkg) => ({
-    main: pkg.main.replace('dist/', ''),
-    module: pkg.module.replace('dist/', ''),
-    browser: pkg.browser.replace('dist/', ''),
-    types: pkg.types.replace('dist/', ''),
-    ...pkg,
-  }),
+  targets: [
+    { src: './src/style/index.css', dest: './dist' },
+    { src: './package.build.json', dest: './dist', rename: 'package.json' },
+  ],
 };
 
 export default defineConfig({
@@ -64,8 +57,9 @@ export default defineConfig({
     },
   ],
   plugins: [
+    buble(),
+    sizes(),
     progress(progressOption),
-    makePackageJson(makePackageJsonOption),
     nodeResolve(nodeResolveOption),
     babel(babelOption),
     commonjs(),
