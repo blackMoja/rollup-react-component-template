@@ -1,0 +1,31 @@
+{
+  "name": "@liam/rollup-design-system",
+  "version": "1.0.0",
+  "repository": "https://github.com/blackMoja/rollup-react-component-template.git",
+  "author": "Liam",
+  "license": "MIT",
+  "main": "./index.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">= 16.17.x"
+  },
+  "scripts": {
+    "lint": "eslint \"**/*.{ts, tsx, js}\"",
+    "lint:fix": "eslint \"**/*.{ts, tsx, js}\" --fix",
+    "build:codegen": "node --loader ts-node/esm -r tsconfig-paths/register ./codegen/index.ts",
+    "build:storybook": "build-storybook -s public",
+    "build": "rimraf dist && yarn lint:fix && yarn build:codegen && NODE_ENV=production rollup -c",
+    "dev": "rollup -c -w",
+    "storybook": "start-storybook -p 6006 -s public",
+    "unimported": "npx unimported"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {}
+}

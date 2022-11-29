@@ -21,11 +21,7 @@ export type TypographyInterfaceVariants =
   | 'caption-regular';
 export type TypographyButtonVariants = 'large' | 'medium' | 'small' | 'tiny';
 export type TypographyLinkVariants = 'large' | 'medium' | 'small';
-export enum TypographyFontWeight {
-  regular = 400,
-  medium = 500,
-  bold = 700,
-}
+export type TypographyFontWeight = 400 | 500 | 700;
 export type TypographyFontSize = 34 | 28 | 24 | 20 | 18 | 16 | 14 | 12 | 10;
 export type TypographyLineHeight = 54 | 46 | 38 | 32 | 28 | 24 | 22 | 18 | 16;
 export type TypographyDict = {
