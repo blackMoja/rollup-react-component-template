@@ -6,7 +6,7 @@ import type {
   TypographyVariants,
 } from '@/foundation/typography/type';
 
-interface TypographyProps {
+export interface TypographyProps {
   variant: TypographyVariants;
   color?: BaseColor;
   align?: TypographyAligns;

@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import Typography from '../../Typography';
+import Typography from '../../components/Typography';
 import { parsedSemanticColors } from '../utils/foundation';
 import { pascalize, pascaliseCamelGroup } from '../utils/format';
 

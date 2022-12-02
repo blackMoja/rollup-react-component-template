@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
-import Typography from '../../../Typography';
+import Typography from '../../../components/Typography';
 import typographyDict, {
   typographyAligns,
 } from '../../../foundation/typography/typography';

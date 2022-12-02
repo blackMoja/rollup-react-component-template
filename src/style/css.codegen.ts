@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import { writeFileSync } from 'fs';
+import { resolve } from 'path';
 import { colors, baseColors, gradients } from '../foundation/colors/colors';
 import breakpoints from '../foundation/breakpoints/breakpoints';
 import typographyDict, {
@@ -92,6 +92,6 @@ const generateGlobalCssFile = () => {
 };
 
 export default function setup() {
-  const filePath = path.resolve(__dirname, 'index.css');
-  fs.writeFileSync(filePath, generateGlobalCssFile(), 'utf-8');
+  const filePath = resolve(__dirname, 'index.css');
+  writeFileSync(filePath, generateGlobalCssFile(), 'utf-8');
 }
