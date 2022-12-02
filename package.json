@@ -4,8 +4,8 @@
   "repository": "https://github.com/blackMoja/rollup-react-component-template.git",
   "author": "Liam",
   "license": "MIT",
-  "main": "./dist/index.main.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
