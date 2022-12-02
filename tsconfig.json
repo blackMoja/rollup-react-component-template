@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    // basic
+    // strict
     "strict": true,
     "jsx": "react-jsx",
     "declaration": true,
